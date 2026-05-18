@@ -1,14 +1,16 @@
 using UnityEngine;
 
 public class playercontroller : MonoBehaviour
+
+
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public float transform.position{}
+    
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         while (Input.GetKey(W))
@@ -16,4 +18,5 @@ public class playercontroller : MonoBehaviour
             transform.position += Vector2(0f, 5f);
         }
     }
+
 }
