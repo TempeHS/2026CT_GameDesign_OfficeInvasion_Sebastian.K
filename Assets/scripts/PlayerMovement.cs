@@ -49,23 +49,6 @@ public class PlayerMovement : MonoBehaviour
         healthBar.SetHealth(Health);
     }
 
-   private void Punch()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
-            leftPunch = true;
-            StartCoroutine(PunchCooldown());
-            leftPunch = false;
-        }
-
-             if (Input.GetMouseButtonDown(1))
-        {
-            rightPunch = true;
-            StartCoroutine(PunchCooldown());
-            rightPunch = false;
-        }
-    }
-
     IEnumerator PunchCooldown()
     {
         yield return new WaitForSeconds (1f);
