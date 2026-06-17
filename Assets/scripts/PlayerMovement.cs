@@ -11,6 +11,12 @@ public class PlayerMovement : MonoBehaviour
    private bool leftPunch;
    private bool rightPunch;
    public float Health, MaxHealth;
+   private Animator anim;
+   private float move;
+   private float speed;
+   public GameObject attackPoint;
+   public float radius;
+   [SerializeField] public LayerMask enemies;
 
    [SerializeField]
     private HealthBarUI healthBar;
@@ -26,6 +32,21 @@ public class PlayerMovement : MonoBehaviour
    {
        rb.linearVelocity = moveInput * moveSpeed;
 
+        move = Input.GetAxisRaw("Horizontal");
+        rb.linearVelocity = new Vector2(move * speed, rb.linearVelocity.y);
+        if (move > .1f || move > -.1f)
+               {
+                   anim.SetBool("isWalking", true);
+               }
+        else
+            {
+                anim.SetBool("isWalking", false);
+            }
+         if (Input.GetMouseButtonDown(0))
+               {
+                   anim.SetBool("isAttacking", true);
+               }
+
        if (Input.GetKeyDown("l"))
         {
             SetHealth(-10f);
@@ -37,6 +58,15 @@ public class PlayerMovement : MonoBehaviour
         }
    }
 
+    public void Attack()
+    {
+        Collider2D[] enemy = Physics2D.OverlapCircleAll(attackPoint.transform.position, radius, enemies);
+
+        foreach (Collider2D enemyGameobject in enemy)
+        {
+            Debug.Log("Hit enemy");
+        }
+    }
    public void Move(InputAction.CallbackContext context)
    {
        moveInput = context.ReadValue<Vector2>();
