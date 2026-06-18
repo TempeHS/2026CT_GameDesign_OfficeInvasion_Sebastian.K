@@ -14,6 +14,8 @@ public class PlayerMovement : MonoBehaviour
    private Animator anim;
    private float move;
    private float speed;
+   private Animator isWalking;
+   private Animator isAttacking;
    public GameObject attackPoint;
    public float radius;
    [SerializeField] public LayerMask enemies;
@@ -33,7 +35,7 @@ public class PlayerMovement : MonoBehaviour
        rb.linearVelocity = moveInput * moveSpeed;
 
         move = Input.GetAxisRaw("Horizontal");
-        rb.linearVelocity = new Vector2(move * speed, rb.linearVelocity.y);
+        //rb.linearVelocity = new Vector2(move * speed, rb.linearVelocity.y);
         if (move > .1f || move > -.1f)
                {
                    anim.SetBool("isWalking", true);
@@ -79,7 +81,7 @@ public class PlayerMovement : MonoBehaviour
         healthBar.SetHealth(Health);
     }
 
-    IEnumerator PunchCooldown()
+    IEnumerator Pause1sec()
     {
         yield return new WaitForSeconds (1f);
     }
