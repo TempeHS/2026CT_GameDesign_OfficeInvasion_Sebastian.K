@@ -1290,6 +1290,11 @@ MonoBehaviour:
   moveSpeed: 5
   Health: 100
   MaxHealth: 100
+  attackPoint: {fileID: 0}
+  radius: 0
+  enemies:
+    serializedVersion: 2
+    m_Bits: 0
   healthBar: {fileID: 2001823701}
 --- !u!114 &1811357817
 MonoBehaviour:
