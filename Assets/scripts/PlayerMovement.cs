@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
    [SerializeField] private float moveSpeed = 5f;
+   private float MovementX;
    private Rigidbody2D rb;
    private Vector2 moveInput;
    private bool leftPunch;
@@ -18,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
    private Animator isAttacking;
    public GameObject attackPoint;
    public float radius;
+   private bool IsFacingRight = false;
    [SerializeField] public LayerMask enemies;
 
    [SerializeField]
@@ -33,6 +35,8 @@ public class PlayerMovement : MonoBehaviour
    void Update()
    {
        rb.linearVelocity = moveInput * moveSpeed;
+
+       Flip();
 
         move = Input.GetAxisRaw("Horizontal");
         //rb.linearVelocity = new Vector2(move * speed, rb.linearVelocity.y);
@@ -79,6 +83,26 @@ public class PlayerMovement : MonoBehaviour
         Health += healthChange;
         Health = Mathf.Clamp(Health, 0, MaxHealth);
         healthBar.SetHealth(Health);
+    }
+
+    private void Flip()
+    {
+        if(Input.GetKeyDown("A"))
+        {
+            transform.localScale = new Vector3(-1f, 1f, 1f);
+        }
+
+         if(Input.GetKeyDown("D"))
+        {
+            transform.localScale = new Vector3(1f, 1f, 1f);
+        }
+       //   if(IsFacingRight && MovementX < 0 || !IsFacingRight && MovementX > 0)
+       //   {
+       //       IsFacingRight = !IsFacingRight;
+       //       Vector2 ls = transform.localScale;
+       //       ls.x *= -1f;
+       //       transform.localScale = ls;
+       //   }
     }
 
     IEnumerator Pause1sec()
