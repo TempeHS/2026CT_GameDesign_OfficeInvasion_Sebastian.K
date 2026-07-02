@@ -19,7 +19,7 @@ public class PlayerMovement : MonoBehaviour
    private Animator isAttacking;
    public GameObject attackPoint;
    public float radius;
-   private bool IsFacingRight = false;
+   //private bool IsFacingRight = false;
    [SerializeField] public LayerMask enemies;
 
    [SerializeField]
@@ -37,6 +37,16 @@ public class PlayerMovement : MonoBehaviour
        rb.linearVelocity = moveInput * moveSpeed;
 
        Flip();
+
+        if(Input.GetKeyDown("A"))
+        {
+            transform.localScale = new Vector3(-1f, 1f, 1f);
+        }
+
+         if(Input.GetKeyDown("D"))
+        {
+            transform.localScale = new Vector3(1f, 1f, 1f);
+        }
 
         move = Input.GetAxisRaw("Horizontal");
         //rb.linearVelocity = new Vector2(move * speed, rb.linearVelocity.y);
@@ -87,20 +97,11 @@ public class PlayerMovement : MonoBehaviour
 
     private void Flip()
     {
-        if(Input.GetKeyDown("A"))
-        {
-            transform.localScale = new Vector3(-1f, 1f, 1f);
-        }
-
-         if(Input.GetKeyDown("D"))
-        {
-            transform.localScale = new Vector3(1f, 1f, 1f);
-        }
        //   if(IsFacingRight && MovementX < 0 || !IsFacingRight && MovementX > 0)
        //   {
        //       IsFacingRight = !IsFacingRight;
        //       Vector2 ls = transform.localScale;
-       //       ls.x *= -1f;
+       //       ls.x * = -1f;
        //       transform.localScale = ls;
        //   }
     }
