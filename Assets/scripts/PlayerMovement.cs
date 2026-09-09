@@ -19,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
    private bool RightPunch;
    public GameObject attackPoint;
    public float radius;
+   public float damage;
    [SerializeField] public LayerMask enemies;
 
    [SerializeField]
@@ -41,7 +42,28 @@ public class PlayerMovement : MonoBehaviour
        rb.linearVelocity = new Vector2(move * speed,rb.linearVelocity.y);
        moveInput = new Vector2(moveX, moveY).normalized;
 
-       if (move > .1f || move > -.1f)
+       if (Input.GetKeyDown("w"))
+        {
+            anim.SetBool("Walking", true);
+        } else
+        {
+            anim.SetBool("Walking", false);
+        }
+        if (Input.GetKeyDown("a"))
+        {
+            anim.SetBool("Walking", true);
+        } else
+        {
+            anim.SetBool("Walking", false);
+        }
+        if (Input.GetKeyDown("s"))
+        {
+            anim.SetBool("Walking", true);
+        } else
+        {
+            anim.SetBool("Walking", false);
+        }
+        if (Input.GetKeyDown("d"))
         {
             anim.SetBool("Walking", true);
         } else
@@ -49,17 +71,15 @@ public class PlayerMovement : MonoBehaviour
             anim.SetBool("Walking", false);
         }
 
-    if (Input.GetMouseButtonDown(0))
+    if (Input.GetMouseButton(0))
         {
             anim.SetBool("Leftpunch", true);
-            Pause2sec();
         } else{
             anim.SetBool("Leftpunch", false);
         }
-    if (Input.GetMouseButtonDown(1))
+    if (Input.GetMouseButton(1))
         {
             anim.SetBool("Rightpunch", true);
-            Pause2sec();
         } else {
             anim.SetBool("Rightpunch", false);
         }
@@ -82,24 +102,28 @@ public class PlayerMovement : MonoBehaviour
     {
         transform.localScale = new Vector3(1f, 1f, 1f);
     }
-    if(Input.GetKeyDown(KeyCode.LeftArrow))
-    {
-        transform.localScale = new Vector3(-1f, 1f, 1f);
-    }
-     if(Input.GetKeyDown(KeyCode.RightArrow))
-    {
-        transform.localScale = new Vector3(1f, 1f, 1f);
-    }
    }
 
-    public void Attack()
+    public void attack()
     {
         Collider2D[] enemy = Physics2D.OverlapCircleAll(attackPoint.transform.position, radius, enemies);
 
         foreach (Collider2D enemyGameobject in enemy)
         {
             Debug.Log("Hit enemy");
+            enemyGameobject.GetComponent<EnemyHealth>().health -= damage;
         }
+    }
+
+    public void endAttack()
+    {
+        anim.SetBool("Rightpunch", false);
+        anim.SetBool("Leftpunch", false);
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(attackPoint.transform.position, radius);
     }
    public void Move(InputAction.CallbackContext context)
    {

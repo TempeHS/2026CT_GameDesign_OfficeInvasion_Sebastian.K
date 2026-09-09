@@ -1232,6 +1232,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &917102087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 247913743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4146b31c6e944c428dff7b8e95c7bd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 50
 --- !u!1001 &937584192
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1242,11 +1255,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 961185807490997054, guid: ca03a06a43b5c3642bd0b8d6e10b315a, type: 3}
       propertyPath: m_Size.x
-      value: 0.1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 961185807490997054, guid: ca03a06a43b5c3642bd0b8d6e10b315a, type: 3}
       propertyPath: m_Size.y
-      value: 0.1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 961185807490997054, guid: ca03a06a43b5c3642bd0b8d6e10b315a, type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.x
@@ -1351,6 +1364,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2144529289870817277, guid: ca03a06a43b5c3642bd0b8d6e10b315a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 917102082}
+    - targetCorrespondingSourceObject: {fileID: 2144529289870817277, guid: ca03a06a43b5c3642bd0b8d6e10b315a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 917102087}
   m_SourcePrefab: {fileID: 100100000, guid: ca03a06a43b5c3642bd0b8d6e10b315a, type: 3}
 --- !u!1 &1110390314
 GameObject:
@@ -1727,6 +1743,37 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!1 &1604816786
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1604816787}
+  m_Layer: 0
+  m_Name: AttackPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1604816787
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1604816786}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.67, y: 0.2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1811357815}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1811357811
 GameObject:
   m_ObjectHideFlags: 0
@@ -1843,7 +1890,8 @@ Transform:
   m_LocalPosition: {x: 0, y: -2, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1604816787}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1811357816
@@ -1861,8 +1909,9 @@ MonoBehaviour:
   moveSpeed: 5
   Health: 100
   MaxHealth: 100
-  attackPoint: {fileID: 0}
-  radius: 0
+  attackPoint: {fileID: 1604816786}
+  radius: 0.3
+  damage: 10
   enemies:
     serializedVersion: 2
     m_Bits: 64
@@ -2188,6 +2237,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2132285809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2132285799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4146b31c6e944c428dff7b8e95c7bd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 50
 --- !u!1001 &6261438281712828315
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2266,7 +2328,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7324220374677790099, guid: 58ebd26c76c850340843be84a55475f3, type: 3}
       propertyPath: m_Size.y
-      value: 0.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7324220374677790099, guid: 58ebd26c76c850340843be84a55475f3, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
@@ -2291,6 +2353,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2144529289870817277, guid: 58ebd26c76c850340843be84a55475f3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2132285804}
+    - targetCorrespondingSourceObject: {fileID: 2144529289870817277, guid: 58ebd26c76c850340843be84a55475f3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2132285809}
   m_SourcePrefab: {fileID: 100100000, guid: 58ebd26c76c850340843be84a55475f3, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
