@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 public class PlayerMovement : MonoBehaviour
 {
    [SerializeField] private float moveSpeed = 5f;
@@ -21,9 +22,8 @@ public class PlayerMovement : MonoBehaviour
    public float radius;
    public float damage;
    [SerializeField] public LayerMask enemies;
-
-   [SerializeField]
-    private HealthBarUI healthBar;
+   [SerializeField] private string MainMenuName;
+   [SerializeField] private HealthBarUI healthBar;
    // Start is called once before the first execution of Update after the MonoBehaviour is created
    void Start()
    {
@@ -41,7 +41,10 @@ public class PlayerMovement : MonoBehaviour
        rb.linearVelocity = moveInput * moveSpeed;
        rb.linearVelocity = new Vector2(move * speed,rb.linearVelocity.y);
        moveInput = new Vector2(moveX, moveY).normalized;
-
+        if (Health <= 0)
+        {
+            SceneManager.LoadScene(MainMenuName);
+        }
        if (Input.GetKeyDown("w"))
         {
             anim.SetBool("Walking", true);
