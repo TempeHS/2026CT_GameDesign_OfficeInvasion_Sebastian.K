@@ -22,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
    public float radius;
    public float damage;
    [SerializeField] public LayerMask enemies;
-   [SerializeField] private string MainMenuName;
+   [SerializeField] private string mainMenuName;
    [SerializeField] private HealthBarUI healthBar;
    // Start is called once before the first execution of Update after the MonoBehaviour is created
    void Start()
@@ -41,10 +41,7 @@ public class PlayerMovement : MonoBehaviour
        rb.linearVelocity = moveInput * moveSpeed;
        rb.linearVelocity = new Vector2(move * speed,rb.linearVelocity.y);
        moveInput = new Vector2(moveX, moveY).normalized;
-        if (Health <= 0)
-        {
-            SceneManager.LoadScene(MainMenuName);
-        }
+        
        if (Input.GetKeyDown("w"))
         {
             anim.SetBool("Walking", true);
@@ -95,6 +92,10 @@ public class PlayerMovement : MonoBehaviour
     {
         SetHealth(10f);
     }
+    if (Health <= 0)
+        {
+            SceneManager.LoadScene(mainMenuName);
+        }
 
     
     if(Input.GetKeyDown("a"))
