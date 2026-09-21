@@ -22,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
    public float radius;
    public float damage;
    [SerializeField] public LayerMask enemies;
-   [SerializeField] private string mainMenuName;
+    [SerializeField] private string mainMenuName;
    [SerializeField] private HealthBarUI healthBar;
    // Start is called once before the first execution of Update after the MonoBehaviour is created
    void Start()
@@ -94,7 +94,8 @@ public class PlayerMovement : MonoBehaviour
     }
     if (Health <= 0)
         {
-            SceneManager.LoadScene(mainMenuName);
+            Debug.Log("working");
+            Play();
         }
 
     
@@ -123,6 +124,15 @@ public class PlayerMovement : MonoBehaviour
     {
         anim.SetBool("Rightpunch", false);
         anim.SetBool("Leftpunch", false);
+    }
+    public void Quit()
+    {
+        Application.Quit();
+    }
+
+    public void Play()
+    {
+        SceneManager.LoadScene(mainMenuName);
     }
 
     private void OnDrawGizmos()

@@ -38,7 +38,7 @@
   The target audience for my game is people who enjoy old arcade games and fast paced action games.
 
 ### 1.3 Game Summary
-  Upon the start of the game, the player enters the office building, and starts fighting the workers there. After the player wins the fight, they will ascend to the next floor and combat with more employees and even guards at the higher floors. When the player reaches the roof, the CEO of the company will be there, which will be the final bossfight.
+  Upon the start of the game, the player enters the office building, and starts fighting the workers there. After the player wins the fight, they will ascend to the next floor and combat with more employees and even guards at the higher floors. When the player reaches the roof, the CEO of the company will be there, which will be the final bossfight. The game is not complete.
 
 ### 1.4 Win / Loss Conditions
 | Condition | Description |
@@ -90,18 +90,18 @@
 ### 3.1 Core Mechanics
 | ID | Mechanic | Description | Implemented In (Script/Object) |
 |---|---|---|---|
-| M-1 | | | |
-| M-2 | | | |
-| M-3 | | | |
-| M-4 | | | |
-| M-5 | | | |
+| M-1 | Main Menu | Acts as the main menu of the game, with a start and quit buttons | MainMenu scene, GameMenu script |
+| M-2 | Punch | Acts as the main combat mechanic of the game, allowing the player to fight | Player GameObject, PlayerMovement script, Left and Right punch animations |
+| M-3 | Left/Right Punch | The player can punch with either their left or right arm, using either the left or right click on the mouse | Player GameObject, PlayerMovement script, Left and Right punch animations |
+| M-4 | Enemies | The enemies are the main objects the player interacts with, and defeating them is the way to progress | Enemy + Enemy1 GameObjects, Enemy script |
+| M-5 | Healthbar | Acts as the way to track the players health, the only current way to change this value is with the L and P keys.| HealthBar Object, HealthBarUI script|
 
 ### 3.2 Player Controls
 | Action | Input (Keyboard / Controller) | Description |
 |---|---|---|
-| | | |
-| | | |
-| | | |
+| Player movement | Keyboard keys: W, A, S, D | Allows the player to move around the map |
+| Left punch | Left mouse click | Allows the player to punch with their left arm |
+| Right punch | Right mouse click | Allows the player to punch with their right arm |
 | | | |
 
 ### 3.3 Physics & Collision
