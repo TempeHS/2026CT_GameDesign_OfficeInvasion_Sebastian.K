@@ -8,7 +8,7 @@ public class EnemyHealth : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     public float health;
     private float hurt;
-    IEnumerator Pause15sec()
+    IEnumerator Pause5sec()
     {
         yield return new WaitForSeconds (5f);
     }
@@ -28,7 +28,7 @@ public class EnemyHealth : MonoBehaviour
         if (hurt != health)
         {
             spriteRenderer.color = Color.red;
-            Pause15sec();
+            Pause5sec();
             spriteRenderer.color = Color.white;
             hurt = health;
         } 

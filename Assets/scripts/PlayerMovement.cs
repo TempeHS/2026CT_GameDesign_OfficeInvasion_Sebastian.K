@@ -95,7 +95,7 @@ public class PlayerMovement : MonoBehaviour
     if (Health <= 0)
         {
             Debug.Log("working");
-            Play();
+            Menu();
         }
 
     
@@ -130,7 +130,7 @@ public class PlayerMovement : MonoBehaviour
         Application.Quit();
     }
 
-    public void Play()
+    public void Menu()
     {
         SceneManager.LoadScene(mainMenuName);
     }
