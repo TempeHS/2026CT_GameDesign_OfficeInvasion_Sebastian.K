@@ -107,24 +107,24 @@
 ### 3.3 Physics & Collision
 | Feature | Description |
 |---|---|
-| | |
-| | |
-| | |
+| Player | The physics for the player character use a BoxCollider2D which prevents them from running through the enemies or outside the map |
+| Enemies | The physics for the enemies use a BoxCollider2D which prevents them from running through the player or outside the map |
+| Walls | The are invisible walls around and inside the map that utilise a BoxCollider2D to prevent characters from going out of bounds |
 
 ### 3.4 Game Loop
 | Stage | Description |
 |---|---|
-| Start / Initialisation | |
-| Core Loop | |
-| Win / End State | |
-| Restart | |
+| Start / Initialisation | The game starts by the player clicking the start button, which enters them into the game |
+| Core Loop | The player will fight the enemies for the main loop of the game |
+| Win / End State | The player wins by defeating all the enemies and would progress to the next level |
+| Restart | The player can reset the level by pressing R or pressing T to go back to the menu, if the player runs out of health, they will be sent back to the menu|
 
 ### 3.5 Scoring & Progression
 | Element | Description |
 |---|---|
-| Scoring System | |
-| Difficulty Progression | |
-| Unlockables / Levels | |
+| Scoring System | N/A: no use for a scoring system within the gameplay loop |
+| Difficulty Progression | N/A: The levels would get harder with more enemies and more types of enemies, but I have not made more levels or types of enemies |
+| Unlockables / Levels | N/A: I have not made more levels |
 
 ---
 
@@ -134,10 +134,8 @@
 
 | Effect Name | Purpose | Screenshot |
 |---|---|---|
-| | | |
-| | | |
-| | | |
-| | | |
+| Enemy damage | To show that an enemy took damage | N/A: not implemented |
+
 
 > Add screenshot images using: `![Effect Name](./docs/screenshots/effect_name.png)`
 
@@ -147,9 +145,10 @@
 
 | Cut Scene | Trigger | Description | Screenshot / Still |
 |---|---|---|---|
+| Elevator Opening | All enemies defeated | The elevator doors open to reveal an elevator with an up arrow in it | N/A: not implemented |
 | | | | |
 | | | | |
-| | | | |
+
 
 > Add screenshot images using: `![Cut Scene Name](./docs/screenshots/cutscene_name.png)`
 
@@ -159,15 +158,16 @@
 
 | Animation | Object / Character | Description | Screenshot |
 |---|---|---|---|
-| | | | |
-| | | | |
-| | | | |
+| Player left punch | Player | The player character swings their left arm in a punching motion | ![Left Punch Animation](Punchleft-1.png) |
+| Player right punch | Player | The player character swings their right arm in a punching motion | ![Right Punch](Punchright.png) |
+| Enemy Walking | Enemy | The enemy walks towards the player | ![alt text](Enemywalking.png) |
+| Enemy1 Walking | Enemy1 | The enemy walks towards the player | ![alt text](Enemy1walking.png) |
 
 > Add screenshot images using: `![Animation Name](./docs/screenshots/animation_name.png)`
 
 ---
 
-### 4.4 Lighting & Post-Processing
+### 4.4 Lighting & Post-Processing: N/A
 
 | Feature | Description | Screenshot |
 |---|---|---|
@@ -179,7 +179,7 @@
 
 ---
 
-### 4.5 Shaders & Materials
+### 4.5 Shaders & Materials: N/A
 
 | Shader / Material | Applied To | Description | Screenshot |
 |---|---|---|---|
@@ -191,7 +191,7 @@
 
 ---
 
-### 4.6 Additional Visual Screenshots
+### 4.6 Additional Visual Screenshots 
 
 <!--
   Add any other notable screenshots here.
@@ -206,7 +206,7 @@
 
 ---
 
-## 5. Audio Design
+## 5. Audio Design: N/A
 
 ### 5.1 Music
 | Track | Scene / Trigger | Source / Composer |
@@ -214,7 +214,7 @@
 | | | |
 | | | |
 
-### 5.2 Sound Effects
+### 5.2 Sound Effects: N/A
 | Sound Effect | Trigger | Source |
 |---|---|---|
 | | | |
@@ -222,7 +222,7 @@
 | | | |
 | | | |
 
-### 5.3 Audio Implementation
+### 5.3 Audio Implementation: N/A
 | Feature | Description |
 |---|---|
 | Audio Mixer / Groups | |
@@ -236,7 +236,7 @@
 ### 6.1 HUD Elements
 | Element | Purpose | Screenshot |
 |---|---|---|
-| | | |
+| Healthbar | Visualises how much health the player has | |
 | | | |
 | | | |
 

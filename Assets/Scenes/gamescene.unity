@@ -2519,7 +2519,7 @@ MonoBehaviour:
   enemies:
     serializedVersion: 2
     m_Bits: 64
-  mainMenuName: 
+  mainMenuName: mainmenu
   healthBar: {fileID: 2001823701}
 --- !u!114 &1811357817
 MonoBehaviour:
