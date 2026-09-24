@@ -70,10 +70,10 @@
 
 | Field | Detail |
 |---|---|
-| **Video Title** | |
-| **Link / Embed** | |
-| **Duration** | |
-| **Description** | |
+| **Video Title** | Video Walkthrough|
+| **Link / Embed** | https://drive.google.com/drive/folders/1JymyyEx_Ez57S8g7M_nYeyGgxPlx3noW?usp=sharing |
+| **Duration** | 1:23 |
+| **Description** | The video walkthrough of my game and its features |
 
 ### 2.2 Feature Highlight Clips
 
@@ -245,9 +245,9 @@
 ### 6.2 Menus
 | Menu | Purpose | Screenshot |
 |---|---|---|
-| Main Menu | | |
-| Pause Menu | | |
-| Game Over Screen | | |
+| Main Menu | To enter the game and quit the game | |
+| Pause Menu | N/A | |
+| Game Over Screen | N/A: just sends you back to the main menu| |
 | | | |
 
 > Add screenshot images using: `![Menu Name](./docs/screenshots/menu_name.png)`
@@ -259,8 +259,8 @@
 ### 7.1 Scene List
 | Scene Name | Purpose | Description |
 |---|---|---|
-| | | |
-| | | |
+| gamescene | main game | contains the main play area for the game|
+| mainmenu | main menu | |
 | | | |
 | | | |
 
